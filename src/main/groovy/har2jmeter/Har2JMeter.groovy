@@ -5,6 +5,8 @@ import groovy.xml.*
 
 class Har2JMeter {
 	
+	def withHttpHeaders = true
+	
 	def convert(File harFile, File jmxFile) {
 		
 		if(!harFile.exists()) {
@@ -31,6 +33,13 @@ class Har2JMeter {
 			}
 		}
 		
+		
+		jmxFile.text = toJmx(jmeterSamplers)
+		println "The JMX file \"${jmxFile}\" was successful created."
+	}
+	
+	
+	def toJmx(jmeterSamplers) {
 		def writer = new StringWriter()
 		def xml = new MarkupBuilder(writer)
 		xml.jmeterTestPlan(version: "1.2", properties:"2.4", jmeter:"2.9")  {
@@ -83,7 +92,7 @@ class Har2JMeter {
 							  
 							}
 							hashTree(){
-								if(sampler.headers) {
+								if(withHttpHeaders && sampler.headers) {
 									HeaderManager(guiclass:"HeaderPanel", testclass:"HeaderManager", testname:"HTTP Header Manager", enabled:"true"){
 										collectionProp(name:"HeaderManager.headers") {
 											sampler.headers.each { header ->
@@ -102,8 +111,7 @@ class Har2JMeter {
 				}
 			}
 		}
-		jmxFile.text = writer.toString()
-		println "The JMX file \"${jmxFile}\" was successful created."
+		return writer.toString()
 	}
 
 }
