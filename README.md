@@ -11,20 +11,20 @@ to convert a HAR file into a JMeter test scripts.
 
 ## Requirements
 
-	- Java VM >= 1.6
+ - Java VM >= 1.6.0
 
 ## Build
 
 	./gradlew distZip
 	
-	or
+or
 	
 	./gradlew distTar
 
 The packages can be found in the directory:
 
- - "build/distributions/har2JMeter-0.1.0.zip" 
- - or "build/distributions/har2JMeter-0.1.0.tar"
+ - build/distributions/har2JMeter-*.zip 
+ - build/distributions/har2JMeter-*.tar
 
 ## License
 
