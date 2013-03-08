@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Har2jmeter : Simple Java/Groovy based command line tool  to convert a HAR file into a JMeter test scripts." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Har2jmeter</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Seitenbau/har2JMeter">View on GitHub</a>
+
+          <h1 id="project_title">Har2jmeter</h1>
+          <h2 id="project_tagline">Simple Java/Groovy based command line tool  to convert a HAR file into a JMeter test scripts.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Seitenbau/har2JMeter/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Seitenbau/har2JMeter/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>HAR to Apache JMeter Convertor</h1>
+
+<p>The project contains a simple Java/Groovy based command line tool 
+to convert a HAR file into a JMeter test scripts.</p>
+
+<pre><code>usage: har2JMeter -har [*.har] -jmx [*.jmx]
+Options:
+    -har &lt;arg&gt;   The har input file which could be converted to a JMeter JMX file.
+    -jmx &lt;arg&gt;   The jmx output file.
+    -help        Print this message.
+</code></pre>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Java VM &gt;= 1.6.0</li>
+</ul><h2>Build</h2>
+
+<pre><code>./gradlew distZip
+</code></pre>
+
+<p>or</p>
+
+<pre><code>./gradlew distTar
+</code></pre>
+
+<p>The packages can be found in the directory:</p>
+
+<ul>
+<li>build/distributions/har2JMeter-*.zip </li>
+<li>build/distributions/har2JMeter-*.tar</li>
+</ul><h2>License</h2>
+
+<p>Apache License, Version 2.0 (current)
+<a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Har2jmeter maintained by <a href="https://github.com/Seitenbau">Seitenbau</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
