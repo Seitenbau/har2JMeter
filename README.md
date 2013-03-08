@@ -25,6 +25,11 @@ The packages can be found in the directory:
 
  - build/distributions/har2JMeter-*.zip 
  - build/distributions/har2JMeter-*.tar
+ 
+## Download
+
+Download the har2JMeter from the project web site: 
+http://seitenbau.github.com/har2JMeter/
 
 ## License
 
