@@ -12,14 +12,16 @@ class Har2JMeterSpec extends Specification {
     TemporaryFolder folder = new TemporaryFolder()
 
     static googleHarFile
-
+    static googleQueryHarFile
     static groovyConsoleHarFile
 
     def outputFile
 
     def setupSpec() {
-        googleHarFile = new File("src/test/resources/har2jmeter/www.google.de.har")
-        groovyConsoleHarFile = new File("src/test/resources/har2jmeter/groovyconsole.appspot.com.har")
+        def resourceFolder = "src/test/resources/har2jmeter"
+        googleHarFile = new File(resourceFolder, "www.google.de.har")
+        groovyConsoleHarFile = new File(resourceFolder, "groovyconsole.appspot.com.har")
+        googleQueryHarFile = new File(resourceFolder, "query.google.de.har")
     }
 
     def setup() {
@@ -69,7 +71,20 @@ class Har2JMeterSpec extends Specification {
                  url:       new URL("http://groovyconsole.appspot.com/executor.groovy"),
                  method:    "POST",
                  headers:   ["Origin":"http://groovyconsole.appspot.com"],
-                 postData:  ["script":"println+%22Hello+World%22%0A"]
+                 arguments: ["script":"println+%22Hello+World%22%0A"]
+            )]))
+    }
+
+    def createGoogleJmxWithQueryParams() {
+        given:
+            Har2JMeter har2jMeter = new Har2JMeter()
+        when:
+            har2jMeter.convert(googleQueryHarFile, outputFile)
+        then:
+            assertXMLEqual(outputFile.text, har2jMeter.toJmx([ new JMeterHttpSampler(
+                    url:       new URL("http://www.google.de/s"),
+                    method:    "GET",
+                    arguments: ["hl":"de"]
             )]))
     }
 

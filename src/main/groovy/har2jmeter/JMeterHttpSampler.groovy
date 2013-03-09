@@ -8,7 +8,7 @@ class JMeterHttpSampler {
 
     Map headers = [:]
 
-    Map postData = [:]
+    Map arguments = [:]
 
     def getPort() {
         url.port != -1 ? url.port : ("HTTPS".equalsIgnoreCase(url.protocol) ? 443 : 80)

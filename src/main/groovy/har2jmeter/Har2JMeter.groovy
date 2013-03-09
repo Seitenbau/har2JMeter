@@ -27,7 +27,10 @@ class Har2JMeter {
                         sampler.headers[header.name] = header.value
                     }
                     request.postData?.params?.each { param ->
-                        sampler.postData[param.name] = param.value
+                        sampler.arguments[param.name] = param.value
+                    }
+                    request.queryString?.each { param ->
+                        sampler.arguments[param.name] = param.value
                     }
                     jmeterSamplers.add(sampler)
                 }
@@ -76,7 +79,7 @@ class Har2JMeter {
                             HTTPSamplerProxy(guiclass: "HttpTestSampleGui", testclass: "HTTPSamplerProxy", testname: "${sampler.path}", enabled: "true") {
                                 elementProp(name: "HTTPsampler.Arguments", elementType: "Arguments", guiclass: "HTTPArgumentsPanel", testclass: "Arguments", testname: "User Defined Variables", enabled: "true") {
                                     collectionProp(name: "Arguments.arguments") {
-                                        sampler.postData.each { param ->
+                                        sampler.arguments.each { param ->
                                             elementProp(name:param.key, elementType:"HTTPArgument"){
                                                 boolProp(name:"HTTPArgument.always_encode", false)
                                                 stringProp(name:"Argument.value", param.value)
@@ -94,7 +97,7 @@ class Har2JMeter {
                                 stringProp(name: "HTTPSampler.protocol", "https")
                                 stringProp(name: "HTTPSampler.contentEncoding", "")
                                 stringProp(name: "HTTPSampler.path", sampler.path)
-                                stringProp(name: "HTTPSampler.method", "GET")
+                                stringProp(name: "HTTPSampler.method", sampler.method.toUpperCase())
                                 boolProp(name: "HTTPSampler.follow_redirects", "true")
                                 boolProp(name: "HTTPSampler.auto_redirects", "false")
                                 boolProp(name: "HTTPSampler.use_keepalive", "true")
