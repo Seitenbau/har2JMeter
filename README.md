@@ -1,5 +1,7 @@
 # HAR to Apache JMeter Convertor
 
+[![Build Status](https://buildhive.cloudbees.com/job/Seitenbau/job/har2JMeter/badge/icon)](https://buildhive.cloudbees.com/job/Seitenbau/job/har2JMeter/)
+
 The project contains a simple Java/Groovy based command line tool 
 to convert a HAR file into a JMeter test scripts.
 
