@@ -7,16 +7,16 @@ version = '0.1.0'
 mainClassName = 'har2jmeter.CliApplication'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	groovy('org.codehaus.groovy:groovy-all:2.0.5')
-	compile('commons-cli:commons-cli:1.2')
-	testCompile('org.spockframework:spock-core:0.7-groovy-2.0')
-	testCompile('xmlunit:xmlunit:1.4')
+    groovy('org.codehaus.groovy:groovy-all:2.0.5')
+    compile('commons-cli:commons-cli:1.2')
+    testCompile('org.spockframework:spock-core:0.7-groovy-2.0')
+    testCompile('xmlunit:xmlunit:1.4')
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '1.4'
+    gradleVersion = '1.4'
 }

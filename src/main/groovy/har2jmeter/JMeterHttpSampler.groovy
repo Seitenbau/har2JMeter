@@ -1,29 +1,29 @@
 package har2jmeter
 
-import java.net.URL;
-
 class JMeterHttpSampler {
-	
-	URL url
 
-	String method
-	
-	Map headers = [:]
+    URL url
 
-	def getPort() {
-		url.port != -1 ? url.port : ("HTTPS".equalsIgnoreCase(url.protocol) ? 443 : 80)
-	}
+    String method
 
-	def getDomain() {
-		url.host
-	}
+    Map headers = [:]
 
-	def getProtocol() {
-		url.protocol
-	}
+    Map postData = [:]
 
-	def getPath() {
-		url.path
-	}
-	
+    def getPort() {
+        url.port != -1 ? url.port : ("HTTPS".equalsIgnoreCase(url.protocol) ? 443 : 80)
+    }
+
+    def getDomain() {
+        url.host
+    }
+
+    def getProtocol() {
+        url.protocol
+    }
+
+    def getPath() {
+        url.path
+    }
+
 }
