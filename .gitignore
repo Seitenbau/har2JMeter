@@ -2,6 +2,7 @@
 .project
 .settings/
 .idea/
+.gradle/
 *.iml
 *.iws
 .DS_Store
